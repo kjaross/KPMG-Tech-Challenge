@@ -3,21 +3,33 @@ Challenge #1
 "A 3 tier environment is a common setup. Use a tool of your choosing/familiarity create these resources. Please remember we will not be judged on the outcome but more focusing on the approach, style and reproducibility."
 
 Please find below the steps to deploy 3 tier infrastructure in AWS using Terraform and a php webserver using Packer.
-
+------------------------
 Steps:
+
 cat ~/.aws/credentials
+
 [kirils-test]
+
 aws_access_key_id = xxxxxx
+
 aws_secret_access_key = xxxxxx
 
+------------------------
+
+
 cat ~/.aws/config 
+
 [kirils-test]
+
 region = us-east-1
+
 output = json
 
 ------------------------
 cd packer
+
 packer validate ami.json
+
 packer build ami.json
 
 ------------------------
@@ -26,6 +38,7 @@ terraform init      #initialize a working directory with modules
 
 terraform plan -refresh=true -out=plan    #Write a plan file to the given path. This can be used as input to the "apply" 
 command.  
+
 refresh - Update state prior to checking for differences (used to detect any drift from the last-known state)
 
 terraform apply plan
