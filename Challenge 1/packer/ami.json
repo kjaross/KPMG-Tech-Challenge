@@ -1,0 +1,23 @@
+{
+    "variables" : {
+        "region" : "us-east-1"
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "profile" : "test",
+            "region" : "{{user `region`}}",
+            "instance_type" : "t2.micro",
+            "source_ami" : "ami-0c94855ba95c71c99",
+            "ssh_username" : "ec2-user",
+            "ami_name" : "KPMG-test",
+            "ami_description" : "Amazon Linux Image with php"
+        }
+    ],
+    "provisioners" : [
+        {
+            "type" : "shell",
+            "script" : "./setup.sh"
+        }
+    ]
+}
